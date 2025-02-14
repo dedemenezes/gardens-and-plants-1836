@@ -18,3 +18,15 @@
   color: red;
   text-decoration: none;
 }
+
+.chores {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  font-size: 12px;
+  font-style: italic;
+
+  a {
+    color: white;
+  }
+}

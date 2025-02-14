@@ -1,24 +1,22 @@
-# README
+# Rails Flow!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Data Brick
+1. Draw your schema
+2. Generate your models
+3. Check migrations
+4. Run migrations
+5. Add association and validations
+6. Populate our DB -> seeds (if needed!)
 
-Things you may want to cover:
+### Applicative Brick
+7. Route
+8. Controller action
+9. View
 
-* Ruby version
+### User stories
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+In order to progress we work on **one user story** at a time
+1. As a vistor I can see details about one park ✅
+2. As a visitor I can add animals into a park (create an animal) ✅
+3. As a visitor I can set an animal free (delete from the park) ✅
+4. As a visitor, I can add a chore to an animal
