@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+      <h1>Complete a chore for <%= @plant.name %></h1>
+
+      <%# <form action="/plants/:plant_id/tasks"></form> %>
+      <%= simple_form_for [@plant, @task] do |f| %>
+        <%= f.association :chore, label: "What did you do?" %>
+        <%= f.submit "Complete", class: 'btn btn-primary' %>
+      <% end %>
+
+      <br>
+
+      <% if @plant.tasks.present? %>
+        <h2><%= pluralize(@plant.tasks.count, "chore") %> completed so far</h2>
+        <ul>
+          <% @plant.tasks.order(created_at: :desc).each do |task| %>
+            <li>
+              <em><%= task.chore.name %></em>
+              on <%= task.created_at.strftime('%B %d, %Y %l:%M %p') %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>

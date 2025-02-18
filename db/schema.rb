@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_02_12_195850) do
+ActiveRecord::Schema[7.1].define(version: 2025_02_18_220707) do
+  create_table "chores", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "gardens", force: :cascade do |t|
     t.string "name"
     t.string "banner_url"
@@ -27,5 +33,16 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_12_195850) do
     t.index ["garden_id"], name: "index_plants_on_garden_id"
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.integer "plant_id", null: false
+    t.integer "chore_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chore_id"], name: "index_tasks_on_chore_id"
+    t.index ["plant_id"], name: "index_tasks_on_plant_id"
+  end
+
   add_foreign_key "plants", "gardens"
+  add_foreign_key "tasks", "chores"
+  add_foreign_key "tasks", "plants"
 end
